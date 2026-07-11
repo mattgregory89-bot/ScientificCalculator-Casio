@@ -10,6 +10,7 @@ public class MainApplication {
 
             displayStartMenu();
 
+            // I recommend making the choices (y/n)
             String startChoice =
                     Console.getStringInput("Enter your choice: ")
                             .trim()
@@ -41,7 +42,8 @@ public class MainApplication {
         Console.println("1. Enter Calculator");
         Console.println("0. Exit");
         Console.println("====================================");
-    }
+    } //end displayStartMenu()
+
 
     public static void startCalculator() {
 
@@ -62,6 +64,7 @@ public class MainApplication {
 
                 case 1:
                     currentPage =
+                    //where did handlePageOne come from?
                             handlePageOne(
                                     choice,
                                     currentPage
@@ -145,20 +148,79 @@ public class MainApplication {
 
         switch (choice) {
 
+            /* 
+            where do the two numbers come from?: getDoubleInput();
+            how many times do I neet to call it? Once, the c
+            where does the artithmetic object get created?
+            after I call .add(); how do I get the number back out to show to the user?
+            */
+            
             case "1":
                 Console.println("Addition selected.");
+
+                //Logic///
+                double num1 = Console.getDoubleInput("Enter first number");
+                double num2 = Console.getDoubleInput("Enter second number");
+                Arithmetic add = new Arithmetic(num1);
+                add.add(num2);
+                double result = add.getResult();
+                String finalResult = String.valueOf(result);
+                Console.println(finalResult);
+                //Logic//
+
                 break;
 
             case "2":
                 Console.println("Subtraction selected.");
+
+                //Logic///
+                double snum1 = Console.getDoubleInput("Enter first number");
+                double snum2 = Console.getDoubleInput("Enter second number");
+                Arithmetic sub = new Arithmetic(snum1);
+                sub.subtract(snum2);
+                double subResult = sub.getResult();
+                String finalSubResult = String.valueOf(subResult);
+                Console.println(finalSubResult);
+                //Logic//
+
                 break;
 
             case "3":
                 Console.println("Multiplication selected.");
+
+                //Logic///
+                double mnum1 = Console.getDoubleInput("Enter first number");
+                double mnum2 = Console.getDoubleInput("Enter second number");
+                Arithmetic multiply = new Arithmetic(mnum1);
+                multiply.multiply(mnum2);
+                double mResult = multiply.getResult();
+                String finalMultiplySubResult = String.valueOf(mResult);
+                Console.println(finalMultiplySubResult);
+                //Logic//
+
                 break;
 
             case "4":
                 Console.println("Division selected.");
+
+                  //Logic///
+                double dnum1 = Console.getDoubleInput("Enter first number");
+                double dnum2 = Console.getDoubleInput("Enter second number");
+
+                try {
+                Arithmetic divide = new Arithmetic(dnum1);
+                divide.divide(dnum2);
+                double dResult = divide.getResult();
+                String finalDivideResult = String.valueOf(dResult);
+                Console.println(finalDivideResult);
+                } catch (ArithmeticException e) {
+                    // TODO: handle exception
+                    Console.println("Invalid input. You cannot divide by 0, please try again");
+
+                }
+            
+                //Logic//
+
                 break;
 
             case "5":
