@@ -39,6 +39,24 @@ public class Arithmetic {
         return this;
     }
 
+    //square root
+    public Arithmetic squareRoot() {
+        this.result = Math.sqrt(this.result);
+        return this;
+    }
+
+    //power
+    public Arithmetic power(double num) {
+        this.result = Math.pow(this.result, num);
+        return this;
+    }
+
+    //modulo
+    public Arithmetic modulo(double num) {
+        this.result = this.result % num;
+        return this;
+    }
+
     //getResult() - will retrieve the final value after chaining
     public double getResult() {
         return this.result;
