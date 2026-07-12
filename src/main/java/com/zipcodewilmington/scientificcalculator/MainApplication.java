@@ -295,10 +295,28 @@ public class MainApplication {
 
             case "1":
                 Console.println("Sine selected.");
+
+                double sineInput = Console.getDoubleInput("Enter first number");
+                Arithmetic sine = new Arithmetic(sineInput);
+
+                sine.sine();
+                double sineResult = sine.getResult();
+                String finalSineResult = String.valueOf(sineResult);
+                Console.println(finalSineResult);
+
                 break;
 
             case "2":
                 Console.println("Cosine selected.");
+
+                double cosineInput = Console.getDoubleInput("Enter first number");
+                Arithmetic cosine = new Arithmetic(cosineInput);
+
+                cosine.cosine();
+                double cosineResult = cosine.getResult();
+                String finalcoSineResult = String.valueOf(cosineResult);
+                Console.println(finalcoSineResult);
+
                 break;
 
             case "3":

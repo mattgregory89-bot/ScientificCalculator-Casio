@@ -39,11 +39,13 @@ public class Arithmetic {
         return this;
     }
 
-    //square root
+    //square root, tehcnically redunant but it's functional. 
+    
     public Arithmetic squareRoot(double num) {
-        this.result = Math.sqrt(this.result);
+        this.result = Math.sqrt(num);
         return this;
     }
+    
 
     //power
     public Arithmetic power(double num) {
@@ -57,11 +59,47 @@ public class Arithmetic {
         return this;
     }
 
+    public Arithmetic sine() {
+        this.result = Math.sin(this.result);
+        return this;
+
+    }
+
+    public Arithmetic cosine() {
+        this.result = Math.cos(this.result);
+        return this;
+
+    }
+
+    public Arithmetic tangent() {
+        this.result = Math.tan(this.result);
+        return this;
+
+    }
+
+    // public Arithmetic cosecant(double num) {
+    //     this.result = Math.cos(this.result);
+    //     return this;
+
+    // }
+
+    // public Arithmetic secant(double num) {
+        
+    // }
+
+    // public Arithmetic cotangent(double num) {
+        
+    // }
+
+
+
     //getResult() - will retrieve the final value after chaining
     public double getResult() {
         return this.result;
     }
 
 }
+
+
 
 
