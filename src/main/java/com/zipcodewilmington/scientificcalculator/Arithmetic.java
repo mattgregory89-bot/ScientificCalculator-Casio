@@ -77,19 +77,21 @@ public class Arithmetic {
 
     }
 
-    // public Arithmetic cosecant(double num) {
-    //     this.result = Math.cos(this.result);
-    //     return this;
+    public Arithmetic cosecant() {
+        this.result = (1/(Math.sin(this.result)));
+        return this;
 
-    // }
+    }
 
-    // public Arithmetic secant(double num) {
-        
-    // }
+    public Arithmetic secant() {
+        this.result = (1/(Math.cos(this.result)));
+        return this;
+    }
 
-    // public Arithmetic cotangent(double num) {
-        
-    // }
+    public Arithmetic cotangent() {
+        this.result = (1/(Math.tan(this.result)));
+        return this;
+    }
 
 
 

@@ -309,8 +309,6 @@ public class MainApplication {
             case "2":
                 Console.println("Cosine selected.");
 
-                double CommitTest2;
-
                 double cosineInput = Console.getDoubleInput("Enter first number");
                 Arithmetic cosine = new Arithmetic(cosineInput);
 
@@ -336,14 +334,41 @@ public class MainApplication {
 
             case "4":
                 Console.println("Cosecant selected.");
+
+                double cosecantInput = Console.getDoubleInput("Enter first number");
+                Arithmetic cosecant = new Arithmetic(cosecantInput);
+
+                cosecant.cosecant();
+                double cosecantResult = cosecant.getResult();
+                String finalCosecantResult = String.valueOf(cosecantResult);
+                Console.println(finalCosecantResult);
+
                 break;
 
             case "5":
                 Console.println("Secant selected.");
+
+                double secantInput = Console.getDoubleInput("Enter first number");
+                Arithmetic secant = new Arithmetic(secantInput);
+
+                secant.secant();
+                double secantResult = secant.getResult();
+                String finalSecantResult = String.valueOf(secantResult);
+                Console.println(finalSecantResult);
+
                 break;
 
             case "6":
                 Console.println("Cotangent selected.");
+
+                double cotangentInput = Console.getDoubleInput("Enter first number");
+                Arithmetic cotangent = new Arithmetic(cotangentInput);
+
+                cotangent.cotangent();
+                double cotangentResult = cotangent.getResult();
+                String finalCotangentResult = String.valueOf(cotangentResult);
+                Console.println(finalCotangentResult);
+
                 break;
 
             case "7":
