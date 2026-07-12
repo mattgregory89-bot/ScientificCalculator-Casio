@@ -309,6 +309,8 @@ public class MainApplication {
             case "2":
                 Console.println("Cosine selected.");
 
+                double CommitTest2;
+
                 double cosineInput = Console.getDoubleInput("Enter first number");
                 Arithmetic cosine = new Arithmetic(cosineInput);
 
@@ -321,6 +323,15 @@ public class MainApplication {
 
             case "3":
                 Console.println("Tangent selected.");
+
+                double tangentInput = Console.getDoubleInput("Enter first number");
+                Arithmetic tangent = new Arithmetic(tangentInput);
+
+                tangent.tangent();
+                double tangentResult = tangent.getResult();
+                String finalTangentResult = String.valueOf(tangentResult);
+                Console.println(finalTangentResult);
+
                 break;
 
             case "4":
