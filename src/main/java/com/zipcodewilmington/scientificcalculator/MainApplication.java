@@ -295,26 +295,80 @@ public class MainApplication {
 
             case "1":
                 Console.println("Sine selected.");
+
+                double sineInput = Console.getDoubleInput("Enter first number");
+                Arithmetic sine = new Arithmetic(sineInput);
+
+                sine.sine();
+                double sineResult = sine.getResult();
+                String finalSineResult = String.valueOf(sineResult);
+                Console.println(finalSineResult);
+
                 break;
 
             case "2":
                 Console.println("Cosine selected.");
+
+                double cosineInput = Console.getDoubleInput("Enter first number");
+                Arithmetic cosine = new Arithmetic(cosineInput);
+
+                cosine.cosine();
+                double cosineResult = cosine.getResult();
+                String finalcoSineResult = String.valueOf(cosineResult);
+                Console.println(finalcoSineResult);
+
                 break;
 
             case "3":
                 Console.println("Tangent selected.");
+
+                double tangentInput = Console.getDoubleInput("Enter first number");
+                Arithmetic tangent = new Arithmetic(tangentInput);
+
+                tangent.tangent();
+                double tangentResult = tangent.getResult();
+                String finalTangentResult = String.valueOf(tangentResult);
+                Console.println(finalTangentResult);
+
                 break;
 
             case "4":
                 Console.println("Cosecant selected.");
+
+                double cosecantInput = Console.getDoubleInput("Enter first number");
+                Arithmetic cosecant = new Arithmetic(cosecantInput);
+
+                cosecant.cosecant();
+                double cosecantResult = cosecant.getResult();
+                String finalCosecantResult = String.valueOf(cosecantResult);
+                Console.println(finalCosecantResult);
+
                 break;
 
             case "5":
                 Console.println("Secant selected.");
+
+                double secantInput = Console.getDoubleInput("Enter first number");
+                Arithmetic secant = new Arithmetic(secantInput);
+
+                secant.secant();
+                double secantResult = secant.getResult();
+                String finalSecantResult = String.valueOf(secantResult);
+                Console.println(finalSecantResult);
+
                 break;
 
             case "6":
                 Console.println("Cotangent selected.");
+
+                double cotangentInput = Console.getDoubleInput("Enter first number");
+                Arithmetic cotangent = new Arithmetic(cotangentInput);
+
+                cotangent.cotangent();
+                double cotangentResult = cotangent.getResult();
+                String finalCotangentResult = String.valueOf(cotangentResult);
+                Console.println(finalCotangentResult);
+
                 break;
 
             case "7":
