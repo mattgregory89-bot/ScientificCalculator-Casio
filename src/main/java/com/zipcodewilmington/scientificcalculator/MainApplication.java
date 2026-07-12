@@ -253,7 +253,10 @@ public class MainApplication {
             case "7":
                 Console.println("Modulo selected.");
 
-                //Logic///
+                // comment to push correctly
+                double numComment;
+
+                //Logic/
                 double modnum1 = Console.getDoubleInput("Enter first number");
                 double modnum2 = Console.getDoubleInput("Enter second number");
                 Arithmetic modulo = new Arithmetic(modnum1);
