@@ -225,14 +225,47 @@ public class MainApplication {
 
             case "5":
                 Console.println("Square root selected.");
+                //Logic/// tehcnically redunant but it's functional. 
+                double sqrtnum1 = Console.getDoubleInput("Enter first number");
+                Arithmetic squareRoot = new Arithmetic(sqrtnum1);
+                squareRoot.squareRoot(sqrtnum1);
+                double sqrtResult = squareRoot.getResult();
+                String finalSquareRootResult = String.valueOf(sqrtResult);
+                Console.println(finalSquareRootResult);
+                //Logic//
                 break;
 
             case "6":
                 Console.println("Power selected.");
+
+                //Logic///
+                double powernum1 = Console.getDoubleInput("Enter first number");
+                double powernum2 = Console.getDoubleInput("Enter second number");
+                Arithmetic power = new Arithmetic(powernum1);
+                power.power(powernum2);
+                double powerResult = power.getResult();
+                String finalPowerResult = String.valueOf(powerResult);
+                Console.println(finalPowerResult);
+                //Logic//
+                
                 break;
 
             case "7":
                 Console.println("Modulo selected.");
+
+                // comment to push correctly
+                double numComment;
+
+                //Logic/
+                double modnum1 = Console.getDoubleInput("Enter first number");
+                double modnum2 = Console.getDoubleInput("Enter second number");
+                Arithmetic modulo = new Arithmetic(modnum1);
+                modulo.modulo(modnum2);
+                double moduloResult = modulo.getResult();
+                String finalModuloResult = String.valueOf(moduloResult);
+                Console.println(finalModuloResult);
+                //Logic//
+
                 break;
 
             case "C":

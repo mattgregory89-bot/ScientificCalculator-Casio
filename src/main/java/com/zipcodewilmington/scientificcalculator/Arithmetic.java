@@ -40,7 +40,7 @@ public class Arithmetic {
     }
 
     //square root
-    public Arithmetic squareRoot() {
+    public Arithmetic squareRoot(double num) {
         this.result = Math.sqrt(this.result);
         return this;
     }
