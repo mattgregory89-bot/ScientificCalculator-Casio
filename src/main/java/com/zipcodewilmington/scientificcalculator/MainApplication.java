@@ -2,8 +2,8 @@
 
 package com.zipcodewilmington.scientificcalculator;
 
-import java.net.URI;
 import java.awt.Desktop;
+import java.net.URI;
 
 public class MainApplication {
 
@@ -172,9 +172,11 @@ public class MainApplication {
 
                 double result = add.getResult();
 
-                if (result == 67) {
-                    secretFeature1();
-                }
+                    if (result == 67) {
+                        secretFeature1();
+                    } else if (result == 69) {
+                        secretFeature2();
+                    }
 
                 calculator.setCurrentValue(result);
 
@@ -199,6 +201,8 @@ public class MainApplication {
 
                 if (result == 67) {
                     secretFeature1();
+                } else if (result == 69) {
+                    secretFeature2();
                 }
 
                 calculator.setCurrentValue(result);
@@ -224,6 +228,8 @@ public class MainApplication {
 
                 if (result == 67) {
                     secretFeature1();
+                } else if (result == 69) {
+                    secretFeature2();
                 }
 
                 calculator.setCurrentValue(result);
@@ -251,6 +257,8 @@ public class MainApplication {
 
                     if (result == 67) {
                     secretFeature1();
+                } else if (result == 69) {
+                    secretFeature2();
                 }
 
                     calculator.setCurrentValue(result);
@@ -281,8 +289,9 @@ public class MainApplication {
 
                 if (result == 67) {
                     secretFeature1();
+                } else if (result == 69) {
+                    secretFeature2();
                 }
-
                 calculator.setCurrentValue(result);
 
                 Console.println(String.valueOf(result));
@@ -306,6 +315,8 @@ public class MainApplication {
 
                 if (result == 67) {
                     secretFeature1();
+                } else if (result == 69) {
+                    secretFeature2();
                 }
 
                 calculator.setCurrentValue(result);
@@ -331,6 +342,8 @@ public class MainApplication {
 
                 if (result == 67) {
                     secretFeature1();
+                } else if (result == 69) {
+                    secretFeature2();
                 }
 
                 calculator.setCurrentValue(result);
@@ -776,5 +789,12 @@ public class MainApplication {
         // TODO: handle exception            startCalculator();        }    }
 }
      }
-
+    public static void secretFeature2() {
+    try {
+        Desktop.getDesktop().browse(
+            new URI("https://www.tiktok.com/t/ZTStHp5kp/")
+        );
+    } catch (Exception e) {
     }
+}
+}
