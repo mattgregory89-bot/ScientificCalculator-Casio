@@ -10,11 +10,10 @@ public class MainApplication {
 
             displayStartMenu();
 
-            // I recommend making the choices (y/n)
-            String startChoice =
-                    Console.getStringInput("Enter your choice: ")
-                            .trim()
-                            .toUpperCase();
+            String startChoice = Console
+                    .getStringInput("Enter your choice: ")
+                    .trim()
+                    .toUpperCase();
 
             switch (startChoice) {
 
@@ -42,33 +41,32 @@ public class MainApplication {
         Console.println("1. Enter Calculator");
         Console.println("0. Exit");
         Console.println("====================================");
-    } //end displayStartMenu()
-
+    }
 
     public static void startCalculator() {
 
         boolean calculatorRunning = true;
-
         int currentPage = 1;
+
+        Calculator calculator = new Calculator();
 
         while (calculatorRunning) {
 
             displayCurrentPage(currentPage);
 
-            String choice =
-                    Console.getStringInput("Enter selection: ")
-                            .trim()
-                            .toUpperCase();
+            String choice = Console
+                    .getStringInput("Enter selection: ")
+                    .trim()
+                    .toUpperCase();
 
             switch (currentPage) {
 
                 case 1:
-                    currentPage =
-                    //where did handlePageOne come from?
-                            handlePageOne(
-                                    choice,
-                                    currentPage
-                            );
+                    currentPage = handlePageOne(
+                            choice,
+                            currentPage,
+                            calculator
+                    );
 
                     if (choice.equals("B")) {
                         calculatorRunning = false;
@@ -77,29 +75,26 @@ public class MainApplication {
                     break;
 
                 case 2:
-                    currentPage =
-                            handlePageTwo(
-                                    choice,
-                                    currentPage
-                            );
-
+                    currentPage = handlePageTwo(
+                            choice,
+                            currentPage,
+                            calculator
+                    );
                     break;
 
                 case 3:
-                    currentPage =
-                            handlePageThree(
-                                    choice,
-                                    currentPage
-                            );
-
+                    currentPage = handlePageThree(
+                            choice,
+                            currentPage
+                    );
                     break;
 
                 case 4:
-                    currentPage =
-                            handlePageFour(
-                                    choice,
-                                    currentPage
-                            );
+                    currentPage = handlePageFour(
+                            choice,
+                            currentPage,
+                            calculator
+                    );
 
                     if (choice.equals("B")) {
                         calculatorRunning = false;
@@ -143,130 +138,165 @@ public class MainApplication {
 
     public static int handlePageOne(
             String choice,
-            int currentPage
+            int currentPage,
+            Calculator calculator
     ) {
 
         switch (choice) {
 
-            /* 
-            where do the two numbers come from?: getDoubleInput();
-            how many times do I neet to call it? Once, the c
-            where does the artithmetic object get created?
-            after I call .add(); how do I get the number back out to show to the user?
-            */
-            
-            case "1":
+            case "1": {
                 Console.println("Addition selected.");
 
-                //Logic///
-                double num1 = Console.getDoubleInput("Enter first number");
-                double num2 = Console.getDoubleInput("Enter second number");
+                double num1 =
+                        Console.getDoubleInput("Enter first number: ");
+
+                double num2 =
+                        Console.getDoubleInput("Enter second number: ");
+
                 Arithmetic add = new Arithmetic(num1);
+
                 add.add(num2);
+
                 double result = add.getResult();
-                String finalResult = String.valueOf(result);
-                Console.println(finalResult);
-                //Logic//
 
+                calculator.setCurrentValue(result);
+
+                Console.println(String.valueOf(result));
                 break;
+            }
 
-            case "2":
+            case "2": {
                 Console.println("Subtraction selected.");
 
-                //Logic///
-                double snum1 = Console.getDoubleInput("Enter first number");
-                double snum2 = Console.getDoubleInput("Enter second number");
-                Arithmetic sub = new Arithmetic(snum1);
-                sub.subtract(snum2);
-                double subResult = sub.getResult();
-                String finalSubResult = String.valueOf(subResult);
-                Console.println(finalSubResult);
-                //Logic//
+                double num1 =
+                        Console.getDoubleInput("Enter first number: ");
 
+                double num2 =
+                        Console.getDoubleInput("Enter second number: ");
+
+                Arithmetic subtract = new Arithmetic(num1);
+
+                subtract.subtract(num2);
+
+                double result = subtract.getResult();
+
+                calculator.setCurrentValue(result);
+
+                Console.println(String.valueOf(result));
                 break;
+            }
 
-            case "3":
+            case "3": {
                 Console.println("Multiplication selected.");
 
-                //Logic///
-                double mnum1 = Console.getDoubleInput("Enter first number");
-                double mnum2 = Console.getDoubleInput("Enter second number");
-                Arithmetic multiply = new Arithmetic(mnum1);
-                multiply.multiply(mnum2);
-                double mResult = multiply.getResult();
-                String finalMultiplySubResult = String.valueOf(mResult);
-                Console.println(finalMultiplySubResult);
-                //Logic//
+                double num1 =
+                        Console.getDoubleInput("Enter first number: ");
 
+                double num2 =
+                        Console.getDoubleInput("Enter second number: ");
+
+                Arithmetic multiply = new Arithmetic(num1);
+
+                multiply.multiply(num2);
+
+                double result = multiply.getResult();
+
+                calculator.setCurrentValue(result);
+
+                Console.println(String.valueOf(result));
                 break;
+            }
 
-            case "4":
+            case "4": {
                 Console.println("Division selected.");
 
-                  //Logic///
-                double dnum1 = Console.getDoubleInput("Enter first number");
-                double dnum2 = Console.getDoubleInput("Enter second number");
+                double num1 =
+                        Console.getDoubleInput("Enter first number: ");
+
+                double num2 =
+                        Console.getDoubleInput("Enter second number: ");
 
                 try {
-                Arithmetic divide = new Arithmetic(dnum1);
-                divide.divide(dnum2);
-                double dResult = divide.getResult();
-                String finalDivideResult = String.valueOf(dResult);
-                Console.println(finalDivideResult);
-                } catch (ArithmeticException e) {
-                    // TODO: handle exception
-                    Console.println("Invalid input. You cannot divide by 0, please try again");
 
+                    Arithmetic divide = new Arithmetic(num1);
+
+                    divide.divide(num2);
+
+                    double result = divide.getResult();
+
+                    calculator.setCurrentValue(result);
+
+                    Console.println(String.valueOf(result));
+
+                } catch (ArithmeticException exception) {
+
+                    Console.println(
+                            "Invalid input. You cannot divide by 0."
+                    );
                 }
-            
-                //Logic//
 
                 break;
+            }
 
-            case "5":
+            case "5": {
                 Console.println("Square root selected.");
-                //Logic/// tehcnically redunant but it's functional. 
-                double sqrtnum1 = Console.getDoubleInput("Enter first number");
-                Arithmetic squareRoot = new Arithmetic(sqrtnum1);
-                squareRoot.squareRoot(sqrtnum1);
-                double sqrtResult = squareRoot.getResult();
-                String finalSquareRootResult = String.valueOf(sqrtResult);
-                Console.println(finalSquareRootResult);
-                //Logic//
-                break;
 
-            case "6":
+                double number =
+                        Console.getDoubleInput("Enter number: ");
+
+                Arithmetic squareRoot = new Arithmetic(number);
+
+                squareRoot.squareRoot(number);
+
+                double result = squareRoot.getResult();
+
+                calculator.setCurrentValue(result);
+
+                Console.println(String.valueOf(result));
+                break;
+            }
+
+            case "6": {
                 Console.println("Power selected.");
 
-                //Logic///
-                double powernum1 = Console.getDoubleInput("Enter first number");
-                double powernum2 = Console.getDoubleInput("Enter second number");
-                Arithmetic power = new Arithmetic(powernum1);
-                power.power(powernum2);
-                double powerResult = power.getResult();
-                String finalPowerResult = String.valueOf(powerResult);
-                Console.println(finalPowerResult);
-                //Logic//
-                
-                break;
+                double base =
+                        Console.getDoubleInput("Enter first number: ");
 
-            case "7":
+                double exponent =
+                        Console.getDoubleInput("Enter second number: ");
+
+                Arithmetic power = new Arithmetic(base);
+
+                power.power(exponent);
+
+                double result = power.getResult();
+
+                calculator.setCurrentValue(result);
+
+                Console.println(String.valueOf(result));
+                break;
+            }
+
+            case "7": {
                 Console.println("Modulo selected.");
 
-                // comment to push correctly
-                double numComment;
+                double num1 =
+                        Console.getDoubleInput("Enter first number: ");
 
-                //Logic/
-                double modnum1 = Console.getDoubleInput("Enter first number");
-                double modnum2 = Console.getDoubleInput("Enter second number");
-                Arithmetic modulo = new Arithmetic(modnum1);
-                modulo.modulo(modnum2);
-                double moduloResult = modulo.getResult();
-                String finalModuloResult = String.valueOf(moduloResult);
-                Console.println(finalModuloResult);
-                //Logic//
+                double num2 =
+                        Console.getDoubleInput("Enter second number: ");
 
+                Arithmetic modulo = new Arithmetic(num1);
+
+                modulo.modulo(num2);
+
+                double result = modulo.getResult();
+
+                calculator.setCurrentValue(result);
+
+                Console.println(String.valueOf(result));
                 break;
+            }
 
             case "C":
                 clearDisplay();
@@ -288,88 +318,119 @@ public class MainApplication {
 
     public static int handlePageTwo(
             String choice,
-            int currentPage
+            int currentPage,
+            Calculator calculator
     ) {
 
         switch (choice) {
 
-            case "1":
+            case "1": {
                 Console.println("Sine selected.");
 
-                double sineInput = Console.getDoubleInput("Enter first number");
+                double sineInput =
+                        Console.getDoubleInput("Enter number: ");
+
                 Arithmetic sine = new Arithmetic(sineInput);
 
                 sine.sine();
-                double sineResult = sine.getResult();
-                String finalSineResult = String.valueOf(sineResult);
-                Console.println(finalSineResult);
 
+                double result = sine.getResult();
+
+                calculator.setCurrentValue(result);
+
+                Console.println(String.valueOf(result));
                 break;
+            }
 
-            case "2":
+            case "2": {
                 Console.println("Cosine selected.");
 
-                double cosineInput = Console.getDoubleInput("Enter first number");
+                double cosineInput =
+                        Console.getDoubleInput("Enter number: ");
+
                 Arithmetic cosine = new Arithmetic(cosineInput);
 
                 cosine.cosine();
-                double cosineResult = cosine.getResult();
-                String finalcoSineResult = String.valueOf(cosineResult);
-                Console.println(finalcoSineResult);
 
+                double result = cosine.getResult();
+
+                calculator.setCurrentValue(result);
+
+                Console.println(String.valueOf(result));
                 break;
+            }
 
-            case "3":
+            case "3": {
                 Console.println("Tangent selected.");
 
-                double tangentInput = Console.getDoubleInput("Enter first number");
+                double tangentInput =
+                        Console.getDoubleInput("Enter number: ");
+
                 Arithmetic tangent = new Arithmetic(tangentInput);
 
                 tangent.tangent();
-                double tangentResult = tangent.getResult();
-                String finalTangentResult = String.valueOf(tangentResult);
-                Console.println(finalTangentResult);
 
+                double result = tangent.getResult();
+
+                calculator.setCurrentValue(result);
+
+                Console.println(String.valueOf(result));
                 break;
+            }
 
-            case "4":
+            case "4": {
                 Console.println("Cosecant selected.");
 
-                double cosecantInput = Console.getDoubleInput("Enter first number");
+                double cosecantInput =
+                        Console.getDoubleInput("Enter number: ");
+
                 Arithmetic cosecant = new Arithmetic(cosecantInput);
 
                 cosecant.cosecant();
-                double cosecantResult = cosecant.getResult();
-                String finalCosecantResult = String.valueOf(cosecantResult);
-                Console.println(finalCosecantResult);
 
+                double result = cosecant.getResult();
+
+                calculator.setCurrentValue(result);
+
+                Console.println(String.valueOf(result));
                 break;
+            }
 
-            case "5":
+            case "5": {
                 Console.println("Secant selected.");
 
-                double secantInput = Console.getDoubleInput("Enter first number");
+                double secantInput =
+                        Console.getDoubleInput("Enter number: ");
+
                 Arithmetic secant = new Arithmetic(secantInput);
 
                 secant.secant();
-                double secantResult = secant.getResult();
-                String finalSecantResult = String.valueOf(secantResult);
-                Console.println(finalSecantResult);
 
+                double result = secant.getResult();
+
+                calculator.setCurrentValue(result);
+
+                Console.println(String.valueOf(result));
                 break;
+            }
 
-            case "6":
+            case "6": {
                 Console.println("Cotangent selected.");
 
-                double cotangentInput = Console.getDoubleInput("Enter first number");
+                double cotangentInput =
+                        Console.getDoubleInput("Enter number: ");
+
                 Arithmetic cotangent = new Arithmetic(cotangentInput);
 
                 cotangent.cotangent();
-                double cotangentResult = cotangent.getResult();
-                String finalCotangentResult = String.valueOf(cotangentResult);
-                Console.println(finalCotangentResult);
 
+                double result = cotangent.getResult();
+
+                calculator.setCurrentValue(result);
+
+                Console.println(String.valueOf(result));
                 break;
+            }
 
             case "7":
                 Console.println("Degrees mode selected.");
@@ -466,41 +527,63 @@ public class MainApplication {
 
     public static int handlePageFour(
             String choice,
-            int currentPage
+            int currentPage,
+            Calculator calculator
     ) {
 
         switch (choice) {
 
             case "1":
                 Console.println("Binary display selected.");
+                Console.println(calculator.displayBinary());
                 break;
 
             case "2":
                 Console.println("Octal display selected.");
+                Console.println(calculator.displayOctal());
                 break;
 
             case "3":
                 Console.println("Decimal display selected.");
+                Console.println(calculator.displayDecimal());
                 break;
 
             case "4":
                 Console.println("Hexadecimal display selected.");
+                Console.println(calculator.displayHexadecimal());
                 break;
 
             case "5":
-                Console.println("Memory store selected.");
+                calculator.memoryStore();
+
+                Console.println(
+                        "Stored in memory: "
+                                + calculator.getMemory()
+                );
                 break;
 
             case "6":
-                Console.println("Memory recall selected.");
+                Console.println(
+                        "Memory recalled: "
+                                + calculator.memoryRecall()
+                );
                 break;
 
             case "7":
-                Console.println("Memory add selected.");
+                calculator.memoryAdd();
+
+                Console.println(
+                        "Current value added to memory."
+                );
+
+                Console.println(
+                        "Memory: " + calculator.getMemory()
+                );
                 break;
 
             case "8":
-                Console.println("Memory reset selected.");
+                calculator.memoryReset();
+                Console.println("Memory reset to 0.");
                 break;
 
             case "C":
