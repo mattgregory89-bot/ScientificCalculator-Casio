@@ -51,6 +51,8 @@ public class MainApplication {
 
         int currentPage = 1;
 
+        String mode = "RAD";
+
         while (calculatorRunning) {
 
             displayCurrentPage(currentPage);
@@ -77,11 +79,9 @@ public class MainApplication {
                     break;
 
                 case 2:
-                    currentPage =
-                            handlePageTwo(
-                                    choice,
-                                    currentPage
-                            );
+                    PageResult pageTwoResult = handlePageTwo(choice, currentPage, mode);
+                    currentPage = pageTwoResult.getCurrentPage();
+                    mode = pageTwoResult.getMode();
 
                     break;
 
@@ -286,17 +286,22 @@ public class MainApplication {
         return currentPage;
     }
 
-    public static int handlePageTwo(
+
+    public static PageResult handlePageTwo(
             String choice,
-            int currentPage
+            int currentPage,
+            String mode
     ) {
 
         switch (choice) {
-
             case "1":
                 Console.println("Sine selected.");
 
                 double sineInput = Console.getDoubleInput("Enter first number");
+
+                if (mode.equals("DEG")) {
+                    sineInput = Math.toRadians(sineInput);
+                }
                 Arithmetic sine = new Arithmetic(sineInput);
 
                 sine.sine();
@@ -310,6 +315,11 @@ public class MainApplication {
                 Console.println("Cosine selected.");
 
                 double cosineInput = Console.getDoubleInput("Enter first number");
+
+                if (mode.equals("DEG")) {
+                    cosineInput = Math.toRadians(cosineInput);
+                }
+
                 Arithmetic cosine = new Arithmetic(cosineInput);
 
                 cosine.cosine();
@@ -323,6 +333,11 @@ public class MainApplication {
                 Console.println("Tangent selected.");
 
                 double tangentInput = Console.getDoubleInput("Enter first number");
+
+                if (mode.equals("DEG")) {
+                    tangentInput = Math.toRadians(tangentInput);
+                }
+
                 Arithmetic tangent = new Arithmetic(tangentInput);
 
                 tangent.tangent();
@@ -336,6 +351,11 @@ public class MainApplication {
                 Console.println("Cosecant selected.");
 
                 double cosecantInput = Console.getDoubleInput("Enter first number");
+
+                 if (mode.equals("DEG")) {
+                    cosecantInput = Math.toRadians(cosecantInput);
+                }
+
                 Arithmetic cosecant = new Arithmetic(cosecantInput);
 
                 cosecant.cosecant();
@@ -349,6 +369,11 @@ public class MainApplication {
                 Console.println("Secant selected.");
 
                 double secantInput = Console.getDoubleInput("Enter first number");
+
+                 if (mode.equals("DEG")) {
+                    secantInput = Math.toRadians(secantInput);
+                }
+
                 Arithmetic secant = new Arithmetic(secantInput);
 
                 secant.secant();
@@ -362,6 +387,11 @@ public class MainApplication {
                 Console.println("Cotangent selected.");
 
                 double cotangentInput = Console.getDoubleInput("Enter first number");
+
+                if (mode.equals("DEG")) {
+                    cotangentInput = Math.toRadians(cotangentInput);
+                }
+
                 Arithmetic cotangent = new Arithmetic(cotangentInput);
 
                 cotangent.cotangent();
@@ -371,12 +401,14 @@ public class MainApplication {
 
                 break;
 
-            case "7":
+                case "7":
                 Console.println("Degrees mode selected.");
+                mode = "DEG";
                 break;
 
             case "8":
                 Console.println("Radians mode selected.");
+                mode = "RAD";
                 break;
 
             case "C":
@@ -399,7 +431,9 @@ public class MainApplication {
                 Console.println("Invalid selection.");
         }
 
-        return currentPage;
+        PageResult chosenPage = new PageResult(currentPage, mode);
+    
+        return chosenPage;
     }
 
     public static int handlePageThree(
