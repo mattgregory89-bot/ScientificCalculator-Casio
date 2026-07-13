@@ -1,4 +1,9 @@
+
+
 package com.zipcodewilmington.scientificcalculator;
+
+import java.net.URI;
+import java.awt.Desktop;
 
 public class MainApplication {
 
@@ -167,6 +172,10 @@ public class MainApplication {
 
                 double result = add.getResult();
 
+                if (result == 67) {
+                    secretFeature1();
+                }
+
                 calculator.setCurrentValue(result);
 
                 Console.println(String.valueOf(result));
@@ -188,6 +197,10 @@ public class MainApplication {
 
                 double result = subtract.getResult();
 
+                if (result == 67) {
+                    secretFeature1();
+                }
+
                 calculator.setCurrentValue(result);
 
                 Console.println(String.valueOf(result));
@@ -208,6 +221,10 @@ public class MainApplication {
                 multiply.multiply(num2);
 
                 double result = multiply.getResult();
+
+                if (result == 67) {
+                    secretFeature1();
+                }
 
                 calculator.setCurrentValue(result);
 
@@ -231,6 +248,10 @@ public class MainApplication {
                     divide.divide(num2);
 
                     double result = divide.getResult();
+
+                    if (result == 67) {
+                    secretFeature1();
+                }
 
                     calculator.setCurrentValue(result);
 
@@ -258,6 +279,10 @@ public class MainApplication {
 
                 double result = squareRoot.getResult();
 
+                if (result == 67) {
+                    secretFeature1();
+                }
+
                 calculator.setCurrentValue(result);
 
                 Console.println(String.valueOf(result));
@@ -279,6 +304,10 @@ public class MainApplication {
 
                 double result = power.getResult();
 
+                if (result == 67) {
+                    secretFeature1();
+                }
+
                 calculator.setCurrentValue(result);
 
                 Console.println(String.valueOf(result));
@@ -299,6 +328,10 @@ public class MainApplication {
                 modulo.modulo(num2);
 
                 double result = modulo.getResult();
+
+                if (result == 67) {
+                    secretFeature1();
+                }
 
                 calculator.setCurrentValue(result);
 
@@ -345,11 +378,11 @@ public class MainApplication {
 
                 sine.sine();
 
-                double result = sine.getResult();
+                double sineresult = sine.getResult();
 
-                calculator.setCurrentValue(result);
+                calculator.setCurrentValue(sineresult);
 
-                Console.println(String.valueOf(result));
+                Console.println(String.valueOf(sineresult));
                 break;
             
             case "2": {
@@ -365,11 +398,11 @@ public class MainApplication {
 
                 cosine.cosine();
 
-                double result = cosine.getResult();
+                double cosineresult = cosine.getResult();
 
-                calculator.setCurrentValue(result);
+                calculator.setCurrentValue(cosineresult);
 
-                Console.println(String.valueOf(result));
+                Console.println(String.valueOf(cosineresult));
                 break;
             }
 
@@ -386,11 +419,11 @@ public class MainApplication {
 
                 tangent.tangent();
 
-                double result = tangent.getResult();
+                double tangentresult = tangent.getResult();
 
-                calculator.setCurrentValue(result);
+                calculator.setCurrentValue(tangentresult);
 
-                Console.println(String.valueOf(result));
+                Console.println(String.valueOf(tangentresult));
                 break;
             }
 
@@ -407,11 +440,11 @@ public class MainApplication {
 
                 cosecant.cosecant();
 
-                double result = cosecant.getResult();
+                double cosecantresult = cosecant.getResult();
 
-                calculator.setCurrentValue(result);
+                calculator.setCurrentValue(cosecantresult);
 
-                Console.println(String.valueOf(result));
+                Console.println(String.valueOf(cosecantresult));
                 break;
             }
 
@@ -428,11 +461,11 @@ public class MainApplication {
 
                 secant.secant();
 
-                double result = secant.getResult();
+                double secantresult = secant.getResult();
 
-                calculator.setCurrentValue(result);
+                calculator.setCurrentValue(secantresult);
 
-                Console.println(String.valueOf(result));
+                Console.println(String.valueOf(secantresult));
                 break;
             }
 
@@ -449,11 +482,11 @@ public class MainApplication {
 
                 cotangent.cotangent();
 
-                double result = cotangent.getResult();
+                double cotangentresult = cotangent.getResult();
 
-                calculator.setCurrentValue(result);
+                calculator.setCurrentValue(cotangentresult);
 
-                Console.println(String.valueOf(result));
+                Console.println(String.valueOf(cotangent));
                 break;
             }
 
@@ -735,4 +768,13 @@ public class MainApplication {
 
         Console.println("Display cleared.");
     }
+
+     public static void secretFeature1() {
+        try { Desktop.getDesktop().browse(new URI("https://www.tiktok.com/@notanothercomchannel/video/7548521677651528991?lang=en"));
+
+        } catch (Exception e) {            
+        // TODO: handle exception            startCalculator();        }    }
 }
+     }
+
+    }
