@@ -1,5 +1,9 @@
 package com.zipcodewilmington.scientificcalculator;
 
+import java.net.URI;
+import java.awt.Desktop;
+import java.net.URI;
+
 public class MainApplication {
 
     public static void main(String[] args) {
@@ -164,6 +168,10 @@ public class MainApplication {
                 Arithmetic add = new Arithmetic(num1);
                 add.add(num2);
                 double result = add.getResult();
+                if (result == 67) {
+                    secretFeature1();
+                }
+
                 String finalResult = String.valueOf(result);
                 Console.println(finalResult);
                 //Logic//
@@ -656,5 +664,14 @@ public class MainApplication {
         }
 
         Console.println("Display cleared.");
+    }
+
+    public static void secretFeature1() {
+        try {
+            Desktop.getDesktop().browse(new URI("https://www.tiktok.com/@notanothercomchannel/video/7548521677651528991?lang=en"));
+        } catch (Exception e) {
+            // TODO: handle exception
+            startCalculator();
+        }
     }
 }
