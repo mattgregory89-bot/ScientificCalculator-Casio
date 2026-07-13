@@ -49,6 +49,7 @@ public class MainApplication {
         int currentPage = 1;
 
         Calculator calculator = new Calculator();
+        String mode = "RAD";
 
         while (calculatorRunning) {
 
@@ -75,11 +76,18 @@ public class MainApplication {
                     break;
 
                 case 2:
-                    currentPage = handlePageTwo(
-                            choice,
-                            currentPage,
-                            calculator
-                    );
+//                     currentPage = handlePageTwo(
+//                             choice,
+//                             currentPage,
+//                             calculator,
+//                             mode
+//                     );
+                
+                    PageResult pageTwoResult = handlePageTwo(choice, currentPage, calculator, mode);
+                
+                    currentPage = pageTwoResult.getCurrentPage();
+                    mode = pageTwoResult.getMode();
+
                     break;
 
                 case 3:
@@ -316,20 +324,23 @@ public class MainApplication {
         return currentPage;
     }
 
-    public static int handlePageTwo(
-            String choice,
-            int currentPage,
-            Calculator calculator
-    ) {
+
+    public static PageResult handlePageTwo(
+        String choice,
+        int currentPage,
+        Calculator calculator,
+        String mode
+) {
 
         switch (choice) {
-
-            case "1": {
+            case "1":
                 Console.println("Sine selected.");
 
-                double sineInput =
-                        Console.getDoubleInput("Enter number: ");
+                double sineInput = Console.getDoubleInput("Enter first number");
 
+                if (mode.equals("DEG")) {
+                    sineInput = Math.toRadians(sineInput);
+                }
                 Arithmetic sine = new Arithmetic(sineInput);
 
                 sine.sine();
@@ -340,13 +351,15 @@ public class MainApplication {
 
                 Console.println(String.valueOf(result));
                 break;
-            }
-
+            
             case "2": {
                 Console.println("Cosine selected.");
 
-                double cosineInput =
-                        Console.getDoubleInput("Enter number: ");
+                double cosineInput = Console.getDoubleInput("Enter first number");
+
+                if (mode.equals("DEG")) {
+                    cosineInput = Math.toRadians(cosineInput);
+                }
 
                 Arithmetic cosine = new Arithmetic(cosineInput);
 
@@ -363,8 +376,11 @@ public class MainApplication {
             case "3": {
                 Console.println("Tangent selected.");
 
-                double tangentInput =
-                        Console.getDoubleInput("Enter number: ");
+                double tangentInput = Console.getDoubleInput("Enter first number");
+
+                if (mode.equals("DEG")) {
+                    tangentInput = Math.toRadians(tangentInput);
+                }
 
                 Arithmetic tangent = new Arithmetic(tangentInput);
 
@@ -381,8 +397,11 @@ public class MainApplication {
             case "4": {
                 Console.println("Cosecant selected.");
 
-                double cosecantInput =
-                        Console.getDoubleInput("Enter number: ");
+                double cosecantInput = Console.getDoubleInput("Enter first number");
+
+                 if (mode.equals("DEG")) {
+                    cosecantInput = Math.toRadians(cosecantInput);
+                }
 
                 Arithmetic cosecant = new Arithmetic(cosecantInput);
 
@@ -399,8 +418,11 @@ public class MainApplication {
             case "5": {
                 Console.println("Secant selected.");
 
-                double secantInput =
-                        Console.getDoubleInput("Enter number: ");
+                double secantInput = Console.getDoubleInput("Enter first number");
+
+                 if (mode.equals("DEG")) {
+                    secantInput = Math.toRadians(secantInput);
+                }
 
                 Arithmetic secant = new Arithmetic(secantInput);
 
@@ -417,8 +439,11 @@ public class MainApplication {
             case "6": {
                 Console.println("Cotangent selected.");
 
-                double cotangentInput =
-                        Console.getDoubleInput("Enter number: ");
+                double cotangentInput = Console.getDoubleInput("Enter first number");
+
+                if (mode.equals("DEG")) {
+                    cotangentInput = Math.toRadians(cotangentInput);
+                }
 
                 Arithmetic cotangent = new Arithmetic(cotangentInput);
 
@@ -432,12 +457,14 @@ public class MainApplication {
                 break;
             }
 
-            case "7":
+                case "7":
                 Console.println("Degrees mode selected.");
+                mode = "DEG";
                 break;
 
             case "8":
                 Console.println("Radians mode selected.");
+                mode = "RAD";
                 break;
 
             case "C":
@@ -460,7 +487,9 @@ public class MainApplication {
                 Console.println("Invalid selection.");
         }
 
-        return currentPage;
+        PageResult chosenPage = new PageResult(currentPage, mode);
+    
+        return chosenPage;
     }
 
     public static int handlePageThree(
